@@ -114,9 +114,9 @@ module Miro
     def image_magick_params
       pallete = Rails.root.join("public", "palette.gif")
       if Miro.histogram?
-        "':in[0]' -resize :resolution -type palette -depth 16 -colors 64 -channel RGBA -colorspace transparent -quantize :quantize -alpha set -format %c histogram:info:"
+        "':in[0]' -resize :resolution -type palette -depth 4 -colors 64 -channel RGBA -colorspace transparent -quantize :quantize -alpha set -format %c histogram:info:"
       else
-        "':in[0]' -resize :resolution -type palette -depth 16 -colors 64 -channel RGBA -colorspace transparent -quantize :quantize -alpha set :out"
+        "':in[0]' -type palette +dither -colors 8 -unique-colors :out"
       end
     end
 
