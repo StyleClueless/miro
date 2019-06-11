@@ -116,7 +116,8 @@ module Miro
       if Miro.histogram?
         "':in[0]' -resize :resolution -type palette -depth 4 -colors 64 -channel RGBA -colorspace transparent -quantize :quantize -alpha set -format %c histogram:info:"
       else
-        "':in[0]' -type palette -posterize 136 +dither -colors 8 -unique-colors :out"
+        # "':in[0]' -type palette -posterize 136 +dither -colors 8 -unique-colors :out"
+        "':in[0]' -type palette -posterize 136 +dither -resize :resolution -colors 8 -colorspace :quantize -quantize :quantize :out"
       end
     end
 
