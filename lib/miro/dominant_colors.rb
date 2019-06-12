@@ -118,7 +118,8 @@ module Miro
       else
         # "':in[0]' -type palette -posterize 136 +dither -colors 8 -unique-colors :out"
         #"':in[0]' -type palette -posterize 136 +dither -resize :resolution -colors 8 -colorspace :quantize -quantize :quantize :out"
-        "':in[0]' -type palette -posterize 136 +dither -resize :resolution -depth 4 -colors 16 -colorspace :quantize -quantize :quantize :out"
+        #"':in[0]' -type palette -posterize 136 +dither -resize :resolution -depth 4 -colors 16 -colorspace :quantize -quantize :quantize :out"
+        "':in[0]' -type palette -posterize 136 +dither -resize :resolution -depth 3 -colors 8 -colorspace :quantize -quantize :quantize :out"
       end
     end
 
